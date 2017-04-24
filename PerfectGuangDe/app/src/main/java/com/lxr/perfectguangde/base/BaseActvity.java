@@ -8,14 +8,30 @@ import javax.inject.Inject;
  * @desc
  */
 
-public abstract class BaseActvity<T extends BasePresenter> extends SimpleActivity {
+public abstract class BaseActvity<T extends BasePresenter> extends SimpleActivity implements BaseView{
 
     @Inject
     protected T mPresenter;
 
-
+    
+    
     @Override
     protected void onViewCreated() {
-
+        
+        initInject();
+        
+        if (mPresenter!=null)
+            mPresenter.attachView(this);
+        
     }
+
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (mPresenter!=null)
+            mPresenter.detachView();
+    }
+
+    protected abstract void initInject();
 }

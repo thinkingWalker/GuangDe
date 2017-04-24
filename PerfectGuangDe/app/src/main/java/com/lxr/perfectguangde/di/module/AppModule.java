@@ -11,6 +11,7 @@ import com.lxr.perfectguangde.model.sp.SpHelper;
 
 import javax.inject.Singleton;
 
+import dagger.Module;
 import dagger.Provides;
 
 /**
@@ -19,6 +20,7 @@ import dagger.Provides;
  * @desc
  */
 
+@Module
 public class AppModule {
 
     private final App application;
@@ -57,8 +59,8 @@ public class AppModule {
 
     @Provides
     @Singleton
-    DataManager provideDataManager(HttpHelper httpHelper, DBHelper DBHelper, SpHelper preferencesHelper) {
-        return new DataManager(httpHelper, DBHelper, preferencesHelper);
+    DataManager provideDataManager(HttpHelper httpHelper, DBHelper dbhelper, SpHelper preferencesHelper) {
+        return new DataManager(httpHelper, dbhelper, preferencesHelper);
     }
 
 }

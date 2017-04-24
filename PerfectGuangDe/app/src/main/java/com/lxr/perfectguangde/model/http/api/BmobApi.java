@@ -8,4 +8,7 @@ package com.lxr.perfectguangde.model.http.api;
  */
 
 public interface BmobApi {
+    String HOST = "http://news-at.zhihu.com/api/4/";
+
+
 }

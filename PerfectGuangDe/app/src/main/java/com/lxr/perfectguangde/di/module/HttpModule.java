@@ -47,6 +47,14 @@ public class HttpModule {
     OkHttpClient.Builder provideOkHttpBuilder() {
         return new OkHttpClient.Builder();
     }
+
+
+    @Singleton
+    @Provides
+    @BmobUrl
+    Retrofit provideZhihuRetrofit(Retrofit.Builder builder, OkHttpClient client) {
+        return createRetrofit(builder, client, BmobApi.HOST);
+    }
     @Singleton
     @Provides
     OkHttpClient provideClient(OkHttpClient.Builder builder) {

@@ -8,6 +8,11 @@ package com.lxr.perfectguangde.base;
 
 public interface BaseView  {
 
+    //=======  State  =======
+    void stateError();
 
+    void stateLoading();
+
+    void stateMain();
 
 }
