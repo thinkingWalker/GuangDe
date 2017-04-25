@@ -12,6 +12,8 @@ import com.lxr.perfectguangde.di.module.FragmentModule;
 
 import javax.inject.Inject;
 
+import io.reactivex.Observable;
+
 /**
  * Created by Administrator on 2017/4/24 0024.
  */
@@ -45,18 +47,7 @@ public abstract class BaseFragment<T extends BasePresenter> extends SimpleFragme
         super.onDestroyView();
     }
 
-    @Override
-    public void stateError() {}
 
-    @Override
-    public void stateLoading() {
-
-    }
-
-    @Override
-    public void stateMain() {
-
-    }
 
     protected abstract void initInject();
 

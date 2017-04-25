@@ -7,12 +7,15 @@ package com.lxr.perfectguangde.base;
  */
 
 public interface BaseView  {
+    void showErrorMsg(String mErrorMsg);
 
-    //=======  State  =======
     void stateError();
 
-    void stateLoading();
-
-    void stateMain();
+//    //=======  State  =======
+//    void stateError();
+//
+//    void stateLoading();
+//
+//    void stateMain();
 
 }

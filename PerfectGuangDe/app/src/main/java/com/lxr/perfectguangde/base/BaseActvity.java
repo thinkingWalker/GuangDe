@@ -1,5 +1,10 @@
 package com.lxr.perfectguangde.base;
 
+import com.lxr.perfectguangde.app.App;
+import com.lxr.perfectguangde.di.component.ActivityComponent;
+import com.lxr.perfectguangde.di.component.DaggerActivityComponent;
+import com.lxr.perfectguangde.di.module.ActivityModule;
+
 import javax.inject.Inject;
 
 /**
@@ -17,7 +22,7 @@ public abstract class BaseActvity<T extends BasePresenter> extends SimpleActivit
     
     @Override
     protected void onViewCreated() {
-        
+
         initInject();
         
         if (mPresenter!=null)
@@ -25,6 +30,11 @@ public abstract class BaseActvity<T extends BasePresenter> extends SimpleActivit
         
     }
 
+    protected ActivityComponent getActivityComponent(){
+        return DaggerActivityComponent.builder().activityModule(new ActivityModule(this))
+                .appComponent(App.getAppComponent())
+                .build();
+    }
 
     @Override
     protected void onDestroy() {
